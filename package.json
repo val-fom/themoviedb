@@ -2,7 +2,7 @@
   "name": "themoviedb",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/val-fom/themoviedb.git",
+  "homepage": "https://val-fom.github.io/themoviedb",
   "dependencies": {
     "history": "^4.7.2",
     "react": "^16.3.2",
