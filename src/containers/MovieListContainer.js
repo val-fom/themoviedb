@@ -14,7 +14,7 @@ class MovieListContainer extends Component {
   };
 
   render() {
-    const { movies } = this.props;
+    const { movies, currentPage } = this.props;
     const loader = (
       <div className="loader" key="loader">
         Loading ...
@@ -22,7 +22,12 @@ class MovieListContainer extends Component {
     );
 
     return (
-      <InfiniteScroll loadMore={this.loadMore} loader={loader} hasMore>
+      <InfiniteScroll
+        pageStart={currentPage}
+        loadMore={this.loadMore}
+        loader={loader}
+        hasMore
+      >
         <MovieList movies={movies} />
       </InfiniteScroll>
     );
@@ -36,6 +41,7 @@ MovieListContainer.propTypes = {
 
 const mapStateToProps = state => ({
   movies: state.movieList.movies,
+  currentPage: state.movieList.currentPage,
 });
 
 export default connect(mapStateToProps)(MovieListContainer);
