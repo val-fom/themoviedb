@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { FAVOURITES } from '../../constants';
 
+import './Favourites.css';
+
 const Favourites = () => (
-  <Fragment>
+  <div className="favourites">
     <h3>Favourites</h3>
     <ul>
       {FAVOURITES.map((item, i) => (
@@ -13,7 +15,7 @@ const Favourites = () => (
         </li>
       ))}
     </ul>
-  </Fragment>
+  </div>
 );
 
 export default Favourites;

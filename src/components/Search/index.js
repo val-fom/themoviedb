@@ -1,5 +1,11 @@
 import React from 'react';
 
-const Search = () => <input type="text" />;
+import './Search.css';
+
+const Search = () => (
+  <div className="search">
+    <input type="text" />;
+  </div>
+);
 
 export default Search;

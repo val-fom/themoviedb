@@ -24,8 +24,10 @@ const App = () => (
         <Header />
         <Search />
         <Favourites />
-        <Route exact path="/" component={MovieListContainer} />
-        <Route path="/movies/:movieId" component={MovieDetailsContainer} />
+        <main className="main">
+          <Route exact path="/" component={MovieListContainer} />
+          <Route path="/movies/:movieId" component={MovieDetailsContainer} />
+        </main>
       </Fragment>
     </ConnectedRouter>
   </Provider>

@@ -1,0 +1,13 @@
+.header {
+	background-color: #aaa;
+	height: 50px;
+	position: fixed;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.header__heading {
+	line-height: 50px;
+	margin: 0 20px;
+}
