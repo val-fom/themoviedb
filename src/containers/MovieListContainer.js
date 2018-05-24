@@ -9,10 +9,6 @@ import { fetchMovies } from '../actions';
 import MovieList from '../components/MovieList';
 
 class MovieListContainer extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchMovies(1));
-  }
-
   loadMore = page => {
     this.props.dispatch(fetchMovies(page));
   };
@@ -26,13 +22,7 @@ class MovieListContainer extends Component {
     );
 
     return (
-      <InfiniteScroll
-        pageStart={1}
-        initialLoad={false}
-        loadMore={this.loadMore}
-        hasMore
-        loader={loader}
-      >
+      <InfiniteScroll loadMore={this.loadMore} loader={loader} hasMore>
         <MovieList movies={movies} />
       </InfiniteScroll>
     );
