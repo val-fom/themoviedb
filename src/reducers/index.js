@@ -1,23 +1,18 @@
-import { REQUEST_MOVIES, RECEIVE_MOVIES } from '../actions';
+import { GET_MOVIES } from '../actions';
 
 export const movieList = (
   state = {
-    isFetching: false,
+    currentPage: null,
     movies: [],
   },
   action
 ) => {
   switch (action.type) {
-    case REQUEST_MOVIES:
+    case GET_MOVIES:
       return {
         ...state,
-        isFetching: true,
-      };
-    case RECEIVE_MOVIES:
-      return {
-        ...state,
-        isFetching: false,
-        movies: action.movies,
+        currentPage: action.currentPage,
+        movies: [...state.movies, ...action.newMovies],
       };
     default:
       return state;
