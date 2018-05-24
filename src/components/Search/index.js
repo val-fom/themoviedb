@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
 const Search = () => <input type="text" />;
 

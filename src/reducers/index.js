@@ -1,13 +1,12 @@
-import { combineReducers } from 'redux';
-
 import { REQUEST_MOVIES, RECEIVE_MOVIES } from '../actions';
 
-const initialState = {
-  isFetching: false,
-  movies: [],
-};
-
-export const movies = (state = initialState, action) => {
+export const movieList = (
+  state = {
+    isFetching: false,
+    movies: [],
+  },
+  action
+) => {
   switch (action.type) {
     case REQUEST_MOVIES:
       return {

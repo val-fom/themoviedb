@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const MovieList = ({ movies }) => {
@@ -15,6 +16,10 @@ const MovieList = ({ movies }) => {
       </ul>
     </Fragment>
   );
+};
+
+MovieList.propTypes = {
+  movies: PropTypes.array.isRequired,
 };
 
 export default MovieList;

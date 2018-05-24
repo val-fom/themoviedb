@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+// import { Link } from 'react-router-dom';
 
 const MovieCard = ({ match }) => (
   <Fragment>
@@ -7,5 +8,9 @@ const MovieCard = ({ match }) => (
     <p>movie info details</p>
   </Fragment>
 );
+
+MovieCard.propTypes = {
+  match: PropTypes.object.isRequired,
+};
 
 export default MovieCard;
