@@ -1,0 +1,16 @@
+.movie-details__section {
+	display: flex;
+	flex-flow: row;
+	padding: 5px;
+	align-items: flex-start;
+}
+
+.movie-details__poster {
+	flex: 0 0 auto;
+
+	margin: 5px;
+}
+
+.movie-details__article {
+	margin: 5px;
+}

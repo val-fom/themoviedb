@@ -1,14 +1,14 @@
 .movieList__section {
-	// 	display: flex;
-	// 	flex-direction: column;
-	// 	align-items: center;
+	// display: flex;
+	// flex-direction: column;
+	// align-items: center;
 }
 
 .movieList__wrapper {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 5px;
-	margin: auto;
+	justify-content: center;
 }
 
 .movieList__movie-card {

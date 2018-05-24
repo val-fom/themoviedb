@@ -14,7 +14,7 @@ const MovieList = ({ movies }) => (
           <Link to={`/movies/${movie.id}`}>
             <img
               src={`${BASE_IMAGE_URL}/w400${movie.poster_path}`}
-              alt={`${movie.original_title} poster`}
+              alt={`${movie.title} poster`}
               width="200px"
             />
           </Link>

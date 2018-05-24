@@ -10,7 +10,7 @@ import Favourites from './components/Favourites';
 import Header from './components/Header';
 import Search from './components/Search';
 import MovieListContainer from './containers/MovieListContainer';
-import MovieDetails from './components/MovieDetails';
+import MovieDetailsContainer from './containers/MovieDetailsContainer';
 
 import './App.css';
 
@@ -25,7 +25,7 @@ const App = () => (
         <Search />
         <Favourites />
         <Route exact path="/" component={MovieListContainer} />
-        <Route path="/movies/:movieId" component={MovieDetails} />
+        <Route path="/movies/:movieId" component={MovieDetailsContainer} />
       </Fragment>
     </ConnectedRouter>
   </Provider>

@@ -10,4 +10,10 @@ export const getPopular = (page = 1) =>
     .then(json)
     .catch(console.error);
 
+export const getMovieDetails = movieId =>
+  fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`)
+    .then(status)
+    .then(json)
+    .catch(console.error);
+
 export const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p';
