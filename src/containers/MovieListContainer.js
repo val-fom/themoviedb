@@ -12,14 +12,15 @@ class MovieListContainer extends Component {
     dispatch(fetchMovies());
   }
   render() {
-    const { movies } = this.props;
-    return <MovieList movies={movies} />;
+    const { movies, isFetching } = this.props;
+    return <MovieList movies={movies} isFetching={isFetching} />;
   }
 }
 
 MovieListContainer.propTypes = {
   dispatch: PropTypes.func.isRequired,
   movies: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({

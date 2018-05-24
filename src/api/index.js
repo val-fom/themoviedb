@@ -7,3 +7,5 @@ export const getPopular = () =>
     .then(status)
     .then(json)
     .catch(console.error);
+
+export const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p';
