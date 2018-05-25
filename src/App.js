@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 
 import createHistory from 'history/createHashHistory';
@@ -8,8 +8,9 @@ import configureStore from './store';
 
 import Favourites from './components/Favourites';
 import HeaderContainer from './containers/HeaderContainer';
-import MovieListContainer from './containers/MovieListContainer';
+import PopularScreen from './screens/PopularScreen';
 import MovieDetailsContainer from './containers/MovieDetailsContainer';
+import SearchScreen from './screens/SearchScreen';
 
 import './App.css';
 
@@ -23,8 +24,9 @@ const App = () => (
         <HeaderContainer />
         <Favourites />
         <main className="main">
-          <Route exact path="/" component={MovieListContainer} />
-          <Route exact path="/search" component={MovieListContainer} />
+          <Route exact path="/" render={() => <Redirect to="/popular" />} />
+          <Route exact path="/popular" component={PopularScreen} />
+          <Route path="/search/:query" component={SearchScreen} />
           <Route path="/movies/:movieId" component={MovieDetailsContainer} />
         </main>
       </Fragment>

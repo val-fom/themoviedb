@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Search from '../Search';
+import SearchContainer from '../../containers/SearchContainer';
 
 import './Header.css';
 
@@ -11,7 +11,7 @@ const Header = ({ subheading }) => (
     <h2 className="header__heading">
       <Link to="/">themoviedb-app</Link> / {subheading}
     </h2>
-    <Search />
+    <SearchContainer />
   </header>
 );
 

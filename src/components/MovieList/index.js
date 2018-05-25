@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
-import { BASE_IMAGE_URL } from '../../api';
+import { BASE_IMAGE_URL } from '../../constants/ApiConstants';
 
 import './MovieList.css';
 
@@ -12,13 +12,13 @@ const MovieList = ({ movies }) => (
         <article className="movieList__movie-card" key={movie.id}>
           <Link to={`/movies/${movie.id}`}>
             <img
-              src={`${BASE_IMAGE_URL}/w400${movie.poster_path}`}
+              src={`${BASE_IMAGE_URL}/w400${movie.posterPath}`}
               alt={`${movie.title} poster`}
               width="200px"
             />
           </Link>
           <Link to={`/movies/${movie.id}`}>
-            <h4>{movie.original_title}</h4>
+            <h4>{movie.originalTitle}</h4>
           </Link>
         </article>
       ))}

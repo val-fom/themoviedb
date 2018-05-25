@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
-import { BASE_IMAGE_URL } from '../../api';
+import { BASE_IMAGE_URL } from '../../constants/ApiConstants';
 
 import './MovieDetails.css';
 
@@ -13,7 +13,7 @@ const MovieDetails = ({ details, isFetching }) => (
       <Fragment>
         <img
           className="movie-details__poster"
-          src={`${BASE_IMAGE_URL}/w780${details.poster_path}`}
+          src={`${BASE_IMAGE_URL}/w780${details.posterPath}`}
           alt={`${details.title} poster`}
           width="390px"
         />
@@ -25,11 +25,11 @@ const MovieDetails = ({ details, isFetching }) => (
           </p>
           <p className="movie-details__countries">
             Countries:{' '}
-            {details.production_countries
-              .map(country => country.iso_3166_1)
+            {details.productionCountries
+              .map(country => country.iso31661)
               .join()}
           </p>
-          <p>Release_date: {details.release_date}</p>
+          <p>Release date: {details.releaseDate}</p>
           <h3>Storyline</h3>
           <p>{details.overview}</p>
         </article>

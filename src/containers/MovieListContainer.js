@@ -1,47 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import InfiniteScroll from 'react-infinite-scroller';
 
-import { fetchMovies } from '../actions';
-
 import MovieList from '../components/MovieList';
 
-class MovieListContainer extends Component {
-  loadMore = page => {
-    this.props.dispatch(fetchMovies(page));
-  };
+const MovieListContainer = ({ movies, currentPage, loadMore }) => {
+  const loader = (
+    <div className="loader" key="loader">
+      Loading ...
+    </div>
+  );
 
-  render() {
-    const { movies, currentPage } = this.props;
-    const loader = (
-      <div className="loader" key="loader">
-        Loading ...
-      </div>
-    );
-
-    return (
-      <InfiniteScroll
-        pageStart={currentPage}
-        loadMore={this.loadMore}
-        loader={loader}
-        hasMore
-      >
-        <MovieList movies={movies} />
-      </InfiniteScroll>
-    );
-  }
-}
-
-MovieListContainer.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  movies: PropTypes.array.isRequired,
+  return (
+    <InfiniteScroll
+      pageStart={currentPage}
+      loadMore={loadMore}
+      loader={loader}
+      hasMore // TODO:
+    >
+      <MovieList movies={movies} />
+    </InfiniteScroll>
+  );
 };
 
-const mapStateToProps = state => ({
-  movies: state.movieList.movies,
-  currentPage: state.movieList.currentPage,
-});
+MovieListContainer.propTypes = {
+  movies: PropTypes.array.isRequired,
+  currentPage: PropTypes.number,
+  loadMore: PropTypes.func.isRequired,
+};
 
-export default connect(mapStateToProps)(MovieListContainer);
+MovieListContainer.defaultProps = {
+  currentPage: null,
+};
+
+export default MovieListContainer;
