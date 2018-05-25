@@ -7,8 +7,7 @@ import createHistory from 'history/createHashHistory';
 import configureStore from './store';
 
 import Favourites from './components/Favourites';
-import Header from './components/Header';
-import Search from './components/Search';
+import HeaderContainer from './containers/HeaderContainer';
 import MovieListContainer from './containers/MovieListContainer';
 import MovieDetailsContainer from './containers/MovieDetailsContainer';
 
@@ -21,11 +20,11 @@ const App = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Fragment>
-        <Header />
-        <Search />
+        <HeaderContainer />
         <Favourites />
         <main className="main">
           <Route exact path="/" component={MovieListContainer} />
+          <Route exact path="/search" component={MovieListContainer} />
           <Route path="/movies/:movieId" component={MovieDetailsContainer} />
         </main>
       </Fragment>

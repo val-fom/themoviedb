@@ -7,7 +7,6 @@ import './MovieList.css';
 
 const MovieList = ({ movies }) => (
   <section className="section movieList__section">
-    <h2 className="movieList__header">Popular movies</h2>
     <div className="movieList__wrapper">
       {movies.map(movie => (
         <article className="movieList__movie-card" key={movie.id}>
