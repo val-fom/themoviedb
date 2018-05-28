@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   query: state.query,
   movies: state.movieList.movies,
   currentPage: state.movieList.currentPage,
+  hasMore: state.movieList.hasMore,
 });
 
 const mapDispatchToProps = dispatch => ({

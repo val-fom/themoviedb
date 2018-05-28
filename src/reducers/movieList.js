@@ -3,6 +3,7 @@ import * as types from '../constants/ActionTypes';
 const initialState = {
   isFetching: false,
   currentPage: null,
+  hasMore: true,
   movies: [],
   query: null,
 };
@@ -19,6 +20,7 @@ export const movieList = (state = initialState, action) => {
         ...state,
         isFetching: false,
         currentPage: action.currentPage,
+        hasMore: action.hasMore,
         movies: [...state.movies, ...action.newMovies],
       };
     case types.RESET_MOVIE_LIST:
