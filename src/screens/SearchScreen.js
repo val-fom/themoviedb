@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { fetchSearchMovies, resetMovieList } from '../actions';
+import { fetchSearchMovies } from '../actions';
 import MovieListContainer from '../containers/MovieListContainer';
 
 const mapStateToProps = state => ({

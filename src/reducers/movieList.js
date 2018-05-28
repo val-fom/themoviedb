@@ -1,3 +1,4 @@
+import { LOCATION_CHANGE } from 'react-router-redux';
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
@@ -23,16 +24,17 @@ export const movieList = (state = initialState, action) => {
         hasMore: action.hasMore,
         movies: [...state.movies, ...action.newMovies],
       };
-    case types.RESET_MOVIE_LIST:
-      return {
-        ...state,
-        currentPage: 0,
-        movies: [],
-      };
     case types.SET_QUERY:
       return {
         ...state,
         query: action.query,
+      };
+    case LOCATION_CHANGE:
+      console.warn('LOCATION_CHANGE from your reducer', action);
+      return {
+        ...state,
+        currentPage: null,
+        movies: [],
       };
     default:
       return state;
