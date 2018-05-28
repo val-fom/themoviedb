@@ -34,6 +34,7 @@ export const movieList = (state = initialState, action) => {
       return {
         ...state,
         currentPage: null,
+        hasMore: true,
         movies: [],
       };
     default:
