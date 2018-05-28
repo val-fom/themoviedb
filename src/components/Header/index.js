@@ -9,7 +9,7 @@ import './Header.css';
 const Header = ({ subheading }) => (
   <header className="header">
     <h2 className="header__heading">
-      <Link to="/">themoviedb-app</Link> / {subheading}
+      <Link to="/popular">themoviedb-app</Link> / {subheading}
     </h2>
     <SearchContainer />
   </header>

@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadMore: page => dispatch(fetchPopularMovies(page)),
+  loadMovies: page => dispatch(fetchPopularMovies(page)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieListContainer);

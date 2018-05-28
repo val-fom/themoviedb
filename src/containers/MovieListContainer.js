@@ -15,7 +15,7 @@ const MovieListContainer = ({ movies, currentPage, loadMovies, hasMore }) => {
   return (
     <InfiniteScroll
       pageStart={currentPage}
-      loadMore={loadMore}
+      loadMore={loadMovies}
       loader={loader}
       hasMore={hasMore}
     >
@@ -27,7 +27,7 @@ const MovieListContainer = ({ movies, currentPage, loadMovies, hasMore }) => {
 MovieListContainer.propTypes = {
   movies: PropTypes.array.isRequired,
   currentPage: PropTypes.number,
-  loadMore: PropTypes.func.isRequired,
+  loadMovies: PropTypes.func.isRequired,
 };
 
 MovieListContainer.defaultProps = {

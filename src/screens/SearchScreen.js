@@ -11,8 +11,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadMore: page => {
-    console.log(this.props);
+  loadMovies: page => {
     dispatch(fetchSearchMovies(page));
   },
 });
