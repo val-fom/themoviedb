@@ -8,13 +8,13 @@ import './Favourites.css';
 const Favourites = () => (
   <div className="favourites">
     <h3>Favourites</h3>
-    <ul>
+    {/* <ul>
       {FAVOURITES.map((item, i) => (
         <li key={i}>
           <Link to={`/movies/${item}`}>{item}</Link>
         </li>
       ))}
-    </ul>
+    </ul> */}
   </div>
 );
 
