@@ -6,6 +6,12 @@ import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createHashHistory';
 import configureStore from './store';
 
+import {
+  MOVIE_DETAILS_PATH,
+  POPULAR_PATH,
+  SEARCH_PATH,
+} from './constants/RouterConstants';
+
 import Favourites from './components/Favourites';
 import HeaderContainer from './containers/HeaderContainer';
 import PopularScreen from './screens/PopularScreen';
@@ -24,10 +30,10 @@ const App = () => (
         <HeaderContainer />
         <Favourites />
         <main className="main">
-          <Route exact path="/" render={() => <Redirect to="/popular" />} />
-          <Route exact path="/popular" component={PopularScreen} />
-          <Route path="/search/:query" component={SearchScreen} />
-          <Route path="/movies/:movieId" component={MovieDetailsContainer} />
+          <Route exact path="/" render={() => <Redirect to={POPULAR_PATH} />} />
+          <Route exact path={POPULAR_PATH} component={PopularScreen} />
+          <Route path={SEARCH_PATH} component={SearchScreen} />
+          <Route path={MOVIE_DETAILS_PATH} component={MovieDetailsContainer} />
         </main>
       </Fragment>
     </ConnectedRouter>
