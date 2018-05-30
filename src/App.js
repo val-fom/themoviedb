@@ -32,7 +32,12 @@ const App = () => (
         <main className="main">
           <Route exact path="/" render={() => <Redirect to={POPULAR_PATH} />} />
           <Route exact path={POPULAR_PATH} component={PopularScreen} />
-          <Route path={SEARCH_PATH} component={SearchScreen} />
+          <Route
+            path={SEARCH_PATH}
+            render={props => <SearchScreen key={Date.now()} {...props} />}
+          />
+          {/* force SearchScreen remount on LOCATION_CHANGE 
+          to reset in InfiniteScroll page counter */}
           <Route path={MOVIE_DETAILS_PATH} component={MovieDetailsContainer} />
         </main>
       </Fragment>
