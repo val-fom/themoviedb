@@ -5,7 +5,7 @@ import {
   POPULAR_MOVIES_URL,
   SEARCH_MOVIES_URL,
 } from '../constants/ApiConstants';
-import { getQuery, getPath } from '../selectors';
+import { getQuery, getPathName } from '../selectors';
 
 const fetchMoviesRequest = () => ({
   type: types.FETCH_MOVIES_REQUEST,
@@ -41,6 +41,6 @@ const setQuery = query => ({
 
 export const searchMovies = query => (dispatch, getState) => {
   dispatch(setQuery(query));
-  const path = getPath(getState());
+  const path = getPathName(getState());
   if (!path.startsWith('/search')) dispatch(push(`/search/${query}`));
 };

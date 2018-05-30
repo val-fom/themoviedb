@@ -1,22 +1,28 @@
+import React from 'react';
 import { connect } from 'react-redux';
+
+import { getPathName, getMovieTitle, getQuery } from '../selectors';
 
 import Header from '../components/Header';
 
-const extractHeadingFromPathname = pathname => {
+const HeaderContainer = props => <Header {...props} />;
+
+const constructSubHeading = state => {
+  const pathName = getPathName(state);
   switch (true) {
-    case /^\/$/.test(pathname):
+    case /^\/$/.test(pathName):
       return 'popular films';
-    case /^\/movie/.test(pathname):
-      return 'movie details';
-    case /^\/search/.test(pathname):
-      return 'search';
+    case /^\/movie/.test(pathName):
+      return `movie details / ${getMovieTitle(state)}`;
+    case /^\/search/.test(pathName):
+      return `search / '${getQuery(state)}'`;
     default:
       return '';
   }
 };
 
 const mapStateToProps = state => ({
-  subheading: extractHeadingFromPathname(state.router.location.pathname),
+  subheading: constructSubHeading(state),
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(HeaderContainer);
