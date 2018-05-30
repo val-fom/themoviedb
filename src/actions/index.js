@@ -34,7 +34,7 @@ export const fetchSearchMovies = page => async (dispatch, getState) => {
   dispatch(fetchMoviesSuccess(json));
 };
 
-const setQuery = query => ({
+export const setQuery = query => ({
   type: types.SET_QUERY,
   query,
 });
