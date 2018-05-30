@@ -23,6 +23,7 @@ const constructSubHeading = state => {
 
 const mapStateToProps = state => ({
   subheading: constructSubHeading(state),
+  currentPathName: getPathName(state),
 });
 
 export default connect(mapStateToProps)(HeaderContainer);
