@@ -30,7 +30,6 @@ export const movieList = (state = initialState, action) => {
         query: action.query,
       };
     case LOCATION_CHANGE:
-      console.warn('LOCATION_CHANGE from your reducer', action);
       return {
         ...state,
         currentPage: null,
