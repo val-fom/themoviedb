@@ -5,7 +5,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 
 import MovieList from '../components/MovieList';
 
-const MovieListContainer = ({ movies, currentPage, loadMovies, hasMore }) => {
+const MovieListContainer = ({ movies, loadMovies, hasMore }) => {
   const loader = (
     <div className="loader" key="loader">
       Loading ...
@@ -13,12 +13,7 @@ const MovieListContainer = ({ movies, currentPage, loadMovies, hasMore }) => {
   );
 
   return (
-    <InfiniteScroll
-      pageStart={currentPage}
-      loadMore={loadMovies}
-      loader={loader}
-      hasMore={hasMore}
-    >
+    <InfiniteScroll loadMore={loadMovies} loader={loader} hasMore={hasMore}>
       <MovieList movies={movies} />
     </InfiniteScroll>
   );
@@ -26,12 +21,8 @@ const MovieListContainer = ({ movies, currentPage, loadMovies, hasMore }) => {
 
 MovieListContainer.propTypes = {
   movies: PropTypes.array.isRequired,
-  currentPage: PropTypes.number,
   loadMovies: PropTypes.func.isRequired,
-};
-
-MovieListContainer.defaultProps = {
-  currentPage: null,
+  hasMore: PropTypes.bool.isRequired,
 };
 
 export default MovieListContainer;

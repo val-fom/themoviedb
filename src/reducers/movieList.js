@@ -3,7 +3,6 @@ import * as types from '../constants/ActionTypes';
 
 const initialState = {
   isFetching: false,
-  currentPage: null,
   hasMore: true,
   movies: [],
   query: null,
@@ -20,7 +19,6 @@ export const movieList = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        currentPage: action.currentPage,
         hasMore: action.hasMore,
         movies: [...state.movies, ...action.newMovies],
       };
@@ -32,7 +30,6 @@ export const movieList = (state = initialState, action) => {
     case LOCATION_CHANGE:
       return {
         ...state,
-        currentPage: null,
         hasMore: true,
         movies: [],
       };

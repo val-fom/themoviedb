@@ -13,7 +13,6 @@ const fetchMoviesRequest = () => ({
 
 const fetchMoviesSuccess = json => ({
   type: types.FETCH_MOVIES_SUCCESS,
-  currentPage: json.page,
   hasMore: json.page < json.totalPages,
   newMovies: json.results,
 });
@@ -24,23 +23,22 @@ export const fetchPopularMovies = page => async dispatch => {
   dispatch(fetchMoviesSuccess(json));
 };
 
-export const fetchSearchMovies = page => async (dispatch, getState) => {
+const setQuery = query => ({
+  type: types.SET_QUERY,
+  query,
+});
+
+export const fetchSearchMovies = (page, query) => async dispatch => {
+  dispatch(setQuery(query));
   dispatch(fetchMoviesRequest());
-  const state = getState();
-  const query = getQuery(state);
   const { json } = await callApi(
     SEARCH_MOVIES_URL.replace(':page', page).replace(':query', query)
   );
   dispatch(fetchMoviesSuccess(json));
 };
 
-export const setQuery = query => ({
-  type: types.SET_QUERY,
-  query,
-});
-
 export const searchMovies = query => (dispatch, getState) => {
-  dispatch(setQuery(query));
   const path = getPathName(getState());
-  if (!path.startsWith('/search')) dispatch(push(`/search/${query}`));
+  const nextPath = `/search/${query}`;
+  if (path !== nextPath) dispatch(push(nextPath));
 };
