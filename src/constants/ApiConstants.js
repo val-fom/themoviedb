@@ -6,10 +6,10 @@ const constructUrl = url =>
     url.indexOf('?') === -1 ? '?' : '&'
   }api_key=${API_KEY}`;
 
+export const MOVIE_DETAILS_URL = constructUrl('/movie/:movieId');
 export const POPULAR_MOVIES_URL = constructUrl('/movie/popular?page=:page');
 export const SEARCH_MOVIES_URL = constructUrl(
   '/search/movie?page=:page&query=:query'
 );
-export const MOVIE_DETAILS_URL = constructUrl('/movie/:movieId');
 
 export const BASE_IMAGE_URL = '//image.tmdb.org/t/p';

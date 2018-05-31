@@ -1,31 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import { fetchMovieDetails } from '../actions/MovieDetailsActions';
-
 import MovieDetails from '../components/MovieDetails';
 
-class MovieDetailsContainer extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchMovieDetails(this.props.match.params.movieId));
-  }
-
-  render() {
-    return (
-      <MovieDetails
-        details={this.props.details}
-        isFetching={this.props.isFetching}
-      />
-    );
-  }
-}
+const MovieDetailsContainer = props => <MovieDetails {...props} />;
 
 MovieDetailsContainer.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  fetchMovieDetails: PropTypes.func.isRequired,
   details: PropTypes.object.isRequired,
   isFetching: PropTypes.bool.isRequired,
-  match: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -33,4 +18,11 @@ const mapStateToProps = state => ({
   isFetching: state.movieDetails.isFetching,
 });
 
-export default connect(mapStateToProps)(MovieDetailsContainer);
+const mapDispatchToProps = (dispatch, onwProps) => ({
+  fetchMovieDetails: () =>
+    dispatch(fetchMovieDetails(onwProps.match.params.movieId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+  MovieDetailsContainer
+);

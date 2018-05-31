@@ -1,9 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  isFetching: true,
   currentMovieId: null,
   details: {},
+  isFetching: true,
 };
 
 export const movieDetails = (state = initialState, action) => {

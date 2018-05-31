@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import { ConnectedRouter } from 'react-router-redux';
-
 import createHistory from 'history/createHashHistory';
-import configureStore from './store';
+import React, { Fragment } from 'react';
+
+import configureStore from './store/configureStore';
 
 import {
   MOVIE_DETAILS_PATH,

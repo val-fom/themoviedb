@@ -5,7 +5,7 @@ import {
   POPULAR_MOVIES_URL,
   SEARCH_MOVIES_URL,
 } from '../constants/ApiConstants';
-import { getQuery, getPathName } from '../selectors';
+import { getPathName } from '../selectors/CommonSelectors';
 
 const fetchMoviesRequest = () => ({
   type: types.FETCH_MOVIES_REQUEST,

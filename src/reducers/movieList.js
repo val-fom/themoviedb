@@ -2,8 +2,8 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  isFetching: false,
   hasMore: true,
+  isFetching: false,
   movies: [],
   query: null,
 };

@@ -1,8 +1,7 @@
-import React from 'react';
 import { connect } from 'react-redux';
+import React from 'react';
 
-import { fetchSearchMovies } from '../actions';
-
+import { fetchSearchMovies } from '../actions/MovieListActions';
 import MovieListContainer from '../containers/MovieListContainer';
 
 const SearchScreen = props => <MovieListContainer {...props} />;
@@ -13,10 +12,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  loadMovies: page => {
-    console.log('page: ', page);
-    dispatch(fetchSearchMovies(page, ownProps.match.params.query));
-  },
+  loadMovies: page =>
+    dispatch(fetchSearchMovies(page, ownProps.match.params.query)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchScreen);

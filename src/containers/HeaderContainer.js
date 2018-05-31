@@ -1,7 +1,11 @@
-import React from 'react';
 import { connect } from 'react-redux';
+import React from 'react';
 
-import { getPathName, getMovieTitle, getQuery } from '../selectors';
+import {
+  getMovieTitle,
+  getPathName,
+  getQuery,
+} from '../selectors/CommonSelectors';
 
 import Header from '../components/Header';
 
@@ -10,7 +14,7 @@ const HeaderContainer = props => <Header {...props} />;
 const constructSubHeading = state => {
   const pathName = getPathName(state);
   switch (true) {
-    case /^\/$/.test(pathName):
+    case /^\/popular$/.test(pathName):
       return 'popular films';
     case /^\/movie/.test(pathName):
       return `movie details / ${getMovieTitle(state)}`;
