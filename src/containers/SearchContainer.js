@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import { searchMovies } from '../actions/MovieListActions';
+import { searchMovies } from '../actions/SearchActions';
 import Search from '../components/Search';
 
 const SearchContainer = props => <Search {...props} />;
