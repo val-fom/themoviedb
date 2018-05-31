@@ -1,4 +1,4 @@
-# themoviedb
+# themoviedb - [Demo](https://val-fom.github.io/themoviedb/#/)
 
 This project is for learning **redux**.  
 It implements the [Test Task for Intern / Junior Front-End Developer Position ](https://gist.github.com/krambertech/ecb3890824fd7ada0f4ec1ff55125758) in usage with:
@@ -9,10 +9,12 @@ It implements the [Test Task for Intern / Junior Front-End Developer Position ](
 * **redux-thunk**
 * [API](https://www.themoviedb.org/documentation/api)
 
-_Currently project is ongoing._
-
-* [Demo](https://val-fom.github.io/themoviedb/#/)
-
 ### Get started
 
-1.  `npm install && npm start`
+```
+npm install && npm start
+```
+
+---
+
+_The project is ongoing:_ [TODOs](https://github.com/val-fom/themoviedb/issues/1)
