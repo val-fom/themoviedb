@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 
 import './Search.css';
@@ -13,7 +14,13 @@ class Search extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit} className="search">
-        <input type="text" name="search" />
+        <TextField
+          id="search"
+          label="Search movies"
+          type="search"
+          className="search__input"
+          autoComplete="off"
+        />
       </form>
     );
   }
