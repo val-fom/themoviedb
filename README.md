@@ -12,3 +12,7 @@ It implements the [Test Task for Intern / Junior Front-End Developer Position ](
 _Currently project is ongoing._
 
 * [Demo](https://val-fom.github.io/themoviedb/#/)
+
+### Get started
+
+1.  `npm install && npm start`
