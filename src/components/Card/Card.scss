@@ -1,0 +1,9 @@
+.movieList__movie-card {
+	width: 200px;
+	margin: 5px;
+	border-radius: 3px;
+	transition: 0.2s;
+	&:hover {
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	}
+}
