@@ -1,4 +1,5 @@
 import { ConnectedRouter } from 'react-router-redux';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import createHistory from 'history/createHashHistory';
@@ -11,6 +12,7 @@ import {
   POPULAR_PATH,
   SEARCH_PATH,
 } from './constants/RouterConstants';
+import { CUSTOM_THEME } from './constants/MuiConstatnts';
 
 import Favourites from './components/Favourites';
 import HeaderContainer from './containers/HeaderContainer';
@@ -24,25 +26,34 @@ const history = createHistory();
 const store = configureStore(history);
 
 const App = () => (
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Fragment>
-        <HeaderContainer />
-        <Favourites />
-        <main className="main">
-          <Route exact path="/" render={() => <Redirect to={POPULAR_PATH} />} />
-          <Route exact path={POPULAR_PATH} component={PopularScreen} />
-          <Route
-            path={SEARCH_PATH}
-            render={props => <SearchScreen key={Date.now()} {...props} />}
-          />
-          {/* force SearchScreen remount on LOCATION_CHANGE 
-          to reset in InfiniteScroll page counter */}
-          <Route path={MOVIE_DETAILS_PATH} component={MovieDetailsContainer} />
-        </main>
-      </Fragment>
-    </ConnectedRouter>
-  </Provider>
+  <MuiThemeProvider theme={CUSTOM_THEME}>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <Fragment>
+          <HeaderContainer />
+          <Favourites />
+          <main className="main">
+            <Route
+              exact
+              path="/"
+              render={() => <Redirect to={POPULAR_PATH} />}
+            />
+            <Route exact path={POPULAR_PATH} component={PopularScreen} />
+            <Route
+              path={SEARCH_PATH}
+              render={props => <SearchScreen key={Date.now()} {...props} />}
+            />
+            {/* force SearchScreen remount on LOCATION_CHANGE 
+            to reset in InfiniteScroll page counter */}
+            <Route
+              path={MOVIE_DETAILS_PATH}
+              component={MovieDetailsContainer}
+            />
+          </main>
+        </Fragment>
+      </ConnectedRouter>
+    </Provider>
+  </MuiThemeProvider>
 );
 
 export default App;
