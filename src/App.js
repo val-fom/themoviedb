@@ -12,7 +12,7 @@ import {
   POPULAR_PATH,
   SEARCH_PATH,
 } from './constants/RouterConstants';
-import { CUSTOM_THEME } from './constants/MuiConstatnts';
+import { CUSTOM_THEME } from './constants/MuiConstants';
 
 import Favourites from './components/Favourites';
 import HeaderContainer from './containers/HeaderContainer';
