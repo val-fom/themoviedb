@@ -16,9 +16,8 @@ import { CUSTOM_THEME } from './constants/MuiConstants';
 
 import Favourites from './components/Favourites';
 import HeaderContainer from './containers/HeaderContainer';
-import PopularScreen from './screens/PopularScreen';
 import MovieDetailsContainer from './containers/MovieDetailsContainer';
-import SearchScreen from './screens/SearchScreen';
+import MovieListContainer from './containers/MovieListContainer';
 
 import './App.css';
 
@@ -38,12 +37,14 @@ const App = () => (
               path="/"
               render={() => <Redirect to={POPULAR_PATH} />}
             />
-            <Route exact path={POPULAR_PATH} component={PopularScreen} />
+            <Route exact path={POPULAR_PATH} component={MovieListContainer} />
             <Route
               path={SEARCH_PATH}
-              render={props => <SearchScreen key={Date.now()} {...props} />}
+              render={props => (
+                <MovieListContainer key={Date.now()} {...props} />
+              )}
             />
-            {/* force SearchScreen remount on LOCATION_CHANGE 
+            {/* force MovieListContainer remount on LOCATION_CHANGE 
             to reset in InfiniteScroll page counter */}
             <Route
               path={MOVIE_DETAILS_PATH}

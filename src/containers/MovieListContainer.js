@@ -1,7 +1,13 @@
+import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
+import { fetchSearchMovies } from '../actions/SearchActions';
+import {
+  fetchGenresList,
+  fetchPopularMovies,
+} from '../actions/MovieListActions';
 import MovieList from '../components/MovieList';
 
 class MovieListContainer extends Component {
@@ -11,9 +17,8 @@ class MovieListContainer extends Component {
   }
 
   render() {
-    if (!this.props.genres) return null;
-
     const { movies, loadMovies, hasMore, genres } = this.props;
+    if (!genres) return null;
 
     const loader = (
       <div className="loader" key="loader">
@@ -41,4 +46,23 @@ MovieListContainer.defaultProps = {
   genres: null,
 };
 
-export default MovieListContainer;
+const mapStateToProps = state => ({
+  movies: state.movieList.movies,
+  hasMore: state.movieList.hasMore,
+  genres: state.movieList.genres,
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { query } = ownProps.match.params;
+  return {
+    loadMovies: query
+      ? page => dispatch(fetchSearchMovies(page, query))
+      : page => dispatch(fetchPopularMovies(page)),
+    getGenres: () => dispatch(fetchGenresList()),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MovieListContainer);
