@@ -6,6 +6,7 @@ const initialState = {
   isFetching: false,
   movies: [],
   query: null,
+  genres: null,
 };
 
 export const movieList = (state = initialState, action) => {
@@ -32,6 +33,15 @@ export const movieList = (state = initialState, action) => {
         ...state,
         hasMore: true,
         movies: [],
+      };
+    case types.FETCH_GENRES_REQUEST:
+      return {
+        ...state,
+      };
+    case types.FETCH_GENRES_SUCCESS:
+      return {
+        ...state,
+        genres: action.genres,
       };
     default:
       return state;

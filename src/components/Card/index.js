@@ -7,7 +7,7 @@ import { MOVIE_DETAILS_PATH } from '../../constants/RouterConstants';
 
 import './Card.css';
 
-const Card = ({ id, posterPath, title }) => (
+const Card = ({ id, posterPath, title, genres, genreIds }) => (
   <article className="movieList__movie-card">
     <Link to={MOVIE_DETAILS_PATH.replace(':movieId', id)}>
       <img
@@ -15,9 +15,11 @@ const Card = ({ id, posterPath, title }) => (
         alt={`${title} poster`}
         width="200px"
       />
-
       <Typography variant="subheading" gutterBottom>
         {title}
+      </Typography>
+      <Typography variant="caption" gutterBottom>
+        {genreIds.map(id => genres[id].name).join(', ')}
       </Typography>
     </Link>
   </article>

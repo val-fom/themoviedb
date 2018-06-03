@@ -23,6 +23,7 @@ const mapDispatchToProps = (dispatch, onwProps) => ({
     dispatch(fetchMovieDetails(onwProps.match.params.movieId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  MovieDetailsContainer
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MovieDetailsContainer);

@@ -6,6 +6,7 @@ const constructUrl = url =>
     url.indexOf('?') === -1 ? '?' : '&'
   }api_key=${API_KEY}`;
 
+export const GENRE_LIST_URL = constructUrl('/genre/movie/list');
 export const MOVIE_DETAILS_URL = constructUrl('/movie/:movieId');
 export const POPULAR_MOVIES_URL = constructUrl('/movie/popular?page=:page');
 export const SEARCH_MOVIES_URL = constructUrl(
