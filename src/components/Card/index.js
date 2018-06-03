@@ -1,5 +1,6 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 import { BASE_IMAGE_URL } from '../../constants/ApiConstants';
@@ -19,10 +20,18 @@ const Card = ({ id, posterPath, title, genres, genreIds }) => (
         {title}
       </Typography>
       <Typography variant="caption" gutterBottom>
-        {genreIds.map(id => genres[id].name).join(', ')}
+        {genreIds.map(genreId => genres[genreId].name).join(', ')}
       </Typography>
     </Link>
   </article>
 );
+
+Card.propTypes = {
+  genreIds: PropTypes.array.isRequired,
+  genres: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+  posterPath: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default Card;

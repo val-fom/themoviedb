@@ -10,4 +10,7 @@ const mapDispatchToProps = dispatch => ({
   searchMovies: query => dispatch(searchMovies(query)),
 });
 
-export default connect(null, mapDispatchToProps)(SearchContainer);
+export default connect(
+  null,
+  mapDispatchToProps
+)(SearchContainer);

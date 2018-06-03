@@ -23,6 +23,7 @@ const MovieList = ({ movies, genres }) => (
 );
 
 MovieList.propTypes = {
+  genres: PropTypes.object.isRequired,
   movies: PropTypes.array.isRequired,
 };
 

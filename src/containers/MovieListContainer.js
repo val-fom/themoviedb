@@ -30,9 +30,15 @@ class MovieListContainer extends Component {
 }
 
 MovieListContainer.propTypes = {
-  movies: PropTypes.array.isRequired,
-  loadMovies: PropTypes.func.isRequired,
+  genres: PropTypes.object,
+  getGenres: PropTypes.func.isRequired,
   hasMore: PropTypes.bool.isRequired,
+  loadMovies: PropTypes.func.isRequired,
+  movies: PropTypes.array.isRequired,
+};
+
+MovieListContainer.defaultProps = {
+  genres: null,
 };
 
 export default MovieListContainer;
