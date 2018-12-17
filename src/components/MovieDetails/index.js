@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 
 import { BASE_IMAGE_URL } from '../../constants/ApiConstants';
 
-import './MovieDetails.css';
+import './MovieDetails.scss';
 
 class MovieDetails extends Component {
   componentDidMount() {

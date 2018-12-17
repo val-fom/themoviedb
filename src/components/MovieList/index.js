@@ -3,7 +3,7 @@ import React from 'react';
 
 import Card from '../Card';
 
-import './MovieList.css';
+import './MovieList.scss';
 
 const MovieList = ({ movies, genres }) => (
   <section className="section movieList__section">

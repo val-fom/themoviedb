@@ -19,7 +19,7 @@ import HeaderContainer from './containers/HeaderContainer';
 import MovieDetailsContainer from './containers/MovieDetailsContainer';
 import MovieListContainer from './containers/MovieListContainer';
 
-import './App.css';
+import './App.scss';
 
 const history = createHistory();
 const store = configureStore(history);

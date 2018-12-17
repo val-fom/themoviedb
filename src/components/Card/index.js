@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { BASE_IMAGE_URL } from '../../constants/ApiConstants';
 import { MOVIE_DETAILS_PATH } from '../../constants/RouterConstants';
 
-import './Card.css';
+import './Card.scss';
 
 const Card = ({ id, posterPath, title, genres, genreIds }) => (
   <article className="movieList__movie-card">

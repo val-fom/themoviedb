@@ -5,7 +5,7 @@ import React from 'react';
 import SearchContainer from '../../containers/SearchContainer';
 import { POPULAR_PATH } from '../../constants/RouterConstants';
 
-import './Header.css';
+import './Header.scss';
 
 const disableLink = e => e.preventDefault();
 
