@@ -1,8 +1,8 @@
-import { ConnectedRouter } from 'react-router-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import createHistory from 'history/createHashHistory';
+import { createBrowserHistory } from 'history';
 import React, { Fragment } from 'react';
 
 import configureStore from './store/configureStore';
@@ -21,7 +21,7 @@ import MovieListContainer from './containers/MovieListContainer';
 
 import './App.scss';
 
-const history = createHistory();
+const history = createBrowserHistory();
 const store = configureStore(history);
 
 const App = () => (

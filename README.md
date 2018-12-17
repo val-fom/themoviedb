@@ -5,7 +5,7 @@ It implements the [Test Task for Intern / Junior Front-End Developer Position ](
 
 * **react**
 * **react-router**
-* **react-router-redux**
+* **connected-react-router**
 * **redux-thunk**
 * [API](https://www.themoviedb.org/documentation/api)
 

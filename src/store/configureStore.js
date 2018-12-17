@@ -1,5 +1,5 @@
 import { combineReducers, applyMiddleware, createStore, compose } from 'redux';
-import { routerReducer, routerMiddleware } from 'react-router-redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 import thunkMiddleware from 'redux-thunk';
 
 import * as reducers from '../reducers';
@@ -9,7 +9,7 @@ const configureStore = history => {
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   return createStore(
     combineReducers({
-      router: routerReducer,
+      router: connectRouter(history),
       ...reducers,
     }),
     composeEnhancers(
