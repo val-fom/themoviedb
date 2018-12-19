@@ -17,8 +17,25 @@ class MovieListContainer extends Component {
     loadMovies(1);
   }
 
+  componentDidUpdate(prevProps) {
+    // reset infinite scroll counter on query change
+    const { loadMovies, match } = this.props;
+    const { query } = match.params;
+    const prevQuery = prevProps.match.params.query;
+    if (prevQuery !== query) {
+      loadMovies(1);
+    }
+  }
+
   render() {
-    const { movies, loadMovies, hasMore, genres, isFetching } = this.props;
+    const {
+      movies,
+      loadMovies,
+      hasMore,
+      genres,
+      isFetching,
+      match,
+    } = this.props;
     if (!genres) return null;
 
     const loader = (
@@ -29,6 +46,7 @@ class MovieListContainer extends Component {
 
     return (
       <InfiniteScroll
+        key={match.params.query} // reset infinite scroll counter on query change
         hasMore={isFetching ? false : hasMore}
         initialLoad={false}
         loader={loader}
@@ -47,6 +65,7 @@ MovieListContainer.propTypes = {
   hasMore: PropTypes.bool.isRequired,
   isFetching: PropTypes.bool.isRequired,
   loadMovies: PropTypes.func.isRequired,
+  match: PropTypes.object.isRequired,
   movies: PropTypes.array.isRequired,
 };
 
