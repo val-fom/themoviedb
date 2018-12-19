@@ -12,12 +12,13 @@ import MovieList from '../components/MovieList';
 
 class MovieListContainer extends Component {
   componentDidMount() {
-    const { genres, getGenres } = this.props;
+    const { genres, getGenres, loadMovies } = this.props;
     if (!genres) getGenres();
+    loadMovies(1);
   }
 
   render() {
-    const { movies, loadMovies, hasMore, genres } = this.props;
+    const { movies, loadMovies, hasMore, genres, isFetching } = this.props;
     if (!genres) return null;
 
     const loader = (
@@ -27,7 +28,13 @@ class MovieListContainer extends Component {
     );
 
     return (
-      <InfiniteScroll loadMore={loadMovies} loader={loader} hasMore={hasMore}>
+      <InfiniteScroll
+        hasMore={isFetching ? false : hasMore}
+        initialLoad={false}
+        loader={loader}
+        loadMore={loadMovies}
+        pageStart={1}
+      >
         <MovieList movies={movies} genres={genres} />
       </InfiniteScroll>
     );
@@ -38,6 +45,7 @@ MovieListContainer.propTypes = {
   genres: PropTypes.object,
   getGenres: PropTypes.func.isRequired,
   hasMore: PropTypes.bool.isRequired,
+  isFetching: PropTypes.bool.isRequired,
   loadMovies: PropTypes.func.isRequired,
   movies: PropTypes.array.isRequired,
 };
@@ -49,6 +57,7 @@ MovieListContainer.defaultProps = {
 const mapStateToProps = state => ({
   movies: state.movieList.movies,
   hasMore: state.movieList.hasMore,
+  isFetching: state.movieList.isFetching,
   genres: state.movieList.genres,
 });
 
