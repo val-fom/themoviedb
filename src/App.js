@@ -38,14 +38,7 @@ const App = () => (
               render={() => <Redirect to={POPULAR_PATH} />}
             />
             <Route exact path={POPULAR_PATH} component={MovieListContainer} />
-            <Route
-              path={SEARCH_PATH}
-              render={props => (
-                <MovieListContainer key={Date.now()} {...props} />
-              )}
-            />
-            {/* force MovieListContainer remount on LOCATION_CHANGE 
-            to reset in InfiniteScroll page counter */}
+            <Route path={SEARCH_PATH} component={MovieListContainer} />
             <Route
               path={MOVIE_DETAILS_PATH}
               component={MovieDetailsContainer}
