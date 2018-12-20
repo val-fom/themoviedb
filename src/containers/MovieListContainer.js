@@ -12,19 +12,8 @@ import MovieList from '../components/MovieList';
 
 class MovieListContainer extends Component {
   componentDidMount() {
-    const { genres, getGenres, loadMovies } = this.props;
+    const { genres, getGenres } = this.props;
     if (!genres) getGenres();
-    loadMovies(1);
-  }
-
-  componentDidUpdate(prevProps) {
-    // reset infinite scroll counter on query change
-    const { loadMovies, match } = this.props;
-    const { query } = match.params;
-    const prevQuery = prevProps.match.params.query;
-    if (prevQuery !== query) {
-      loadMovies(1);
-    }
   }
 
   render() {
@@ -48,10 +37,8 @@ class MovieListContainer extends Component {
       <InfiniteScroll
         key={match.params.query} // reset infinite scroll counter on query change
         hasMore={isFetching ? false : hasMore}
-        initialLoad={false}
         loader={loader}
         loadMore={loadMovies}
-        pageStart={1}
       >
         <MovieList movies={movies} genres={genres} />
       </InfiniteScroll>
