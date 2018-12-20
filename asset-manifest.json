@@ -1,6 +1,13 @@
 {
-  "main.css": "static/css/main.bf582dc0.css",
-  "main.css.map": "static/css/main.bf582dc0.css.map",
-  "main.js": "static/js/main.37b4dcbf.js",
-  "main.js.map": "static/js/main.37b4dcbf.js.map"
+  "main.css": "/themoviedb/static/css/main.c77d2b22.chunk.css",
+  "main.js": "/themoviedb/static/js/main.6fec6640.chunk.js",
+  "main.js.map": "/themoviedb/static/js/main.6fec6640.chunk.js.map",
+  "static/js/1.6b05e54c.chunk.js": "/themoviedb/static/js/1.6b05e54c.chunk.js",
+  "static/js/1.6b05e54c.chunk.js.map": "/themoviedb/static/js/1.6b05e54c.chunk.js.map",
+  "runtime~main.js": "/themoviedb/static/js/runtime~main.c25c445e.js",
+  "runtime~main.js.map": "/themoviedb/static/js/runtime~main.c25c445e.js.map",
+  "static/css/main.c77d2b22.chunk.css.map": "/themoviedb/static/css/main.c77d2b22.chunk.css.map",
+  "index.html": "/themoviedb/index.html",
+  "precache-manifest.a4e37bec2172b6f96eff95be6f27f739.js": "/themoviedb/precache-manifest.a4e37bec2172b6f96eff95be6f27f739.js",
+  "service-worker.js": "/themoviedb/service-worker.js"
 }
