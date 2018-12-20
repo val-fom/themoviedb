@@ -4,10 +4,7 @@ import { callApi } from '../utils/ApiUtils';
 import { getPathName } from '../selectors/CommonSelectors';
 import { SEARCH_MOVIES_URL } from '../constants/ApiConstants';
 import * as types from '../constants/ActionTypes';
-import {
-  fetchMoviesRequest,
-  fetchMoviesSuccess,
-} from '../actions/MovieListActions';
+import { fetchMoviesRequest, fetchMoviesSuccess } from './MovieListActions';
 
 const setQuery = query => ({
   type: types.SET_QUERY,

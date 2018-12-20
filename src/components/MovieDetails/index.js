@@ -7,7 +7,8 @@ import './MovieDetails.scss';
 
 class MovieDetails extends Component {
   componentDidMount() {
-    this.props.fetchMovieDetails();
+    const { fetchMovieDetails } = this.props;
+    fetchMovieDetails();
   }
 
   render() {

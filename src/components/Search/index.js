@@ -8,7 +8,8 @@ class Search extends Component {
   onSubmit = ev => {
     ev.preventDefault();
     const query = ev.target.search.value;
-    this.props.searchMovies(query);
+    const { searchMovies } = this.props;
+    searchMovies(query);
   };
 
   render() {

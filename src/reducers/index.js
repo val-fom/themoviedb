@@ -1,2 +1,2 @@
-export { movieDetails } from '../reducers/movieDetails';
-export { movieList } from '../reducers/movieList';
+export { movieDetails } from './movieDetails';
+export { movieList } from './movieList';
