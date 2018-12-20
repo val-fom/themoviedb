@@ -5,7 +5,6 @@ const initialState = {
   hasMore: true,
   isFetching: false,
   movies: [],
-  query: null,
   genres: null,
 };
 
@@ -22,11 +21,6 @@ export const movieList = (state = initialState, action) => {
         isFetching: false,
         hasMore: action.hasMore,
         movies: [...state.movies, ...action.newMovies],
-      };
-    case types.SET_QUERY:
-      return {
-        ...state,
-        query: action.query,
       };
     case LOCATION_CHANGE:
       return {

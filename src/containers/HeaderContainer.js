@@ -1,11 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 
-import {
-  getMovieTitle,
-  getPathName,
-  getQuery,
-} from '../selectors/CommonSelectors';
+import { getMovieTitle, getPathName } from '../selectors/CommonSelectors';
 
 import Header from '../components/Header';
 
@@ -19,7 +15,7 @@ const constructSubHeading = state => {
     case /^\/movie/.test(pathName):
       return `movie details / ${getMovieTitle(state)}`;
     case /^\/search/.test(pathName):
-      return `search / '${getQuery(state)}'`;
+      return `search / '${pathName.slice(8)}'`;
     default:
       return '';
   }
